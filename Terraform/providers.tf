@@ -1,21 +1,25 @@
+
+
 terraform {
   required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.44.0"
+    }
     random = {
       source  = "hashicorp/random"
       version = "3.6.0"
     }
-    aws = {
-      source  = "hashicorp/aws"
-      version = "5.44.0"
-    }
+
   }
 }
 
+provider "aws" {
+  # Configuration options
+}
 provider "random" {
   # Configuration options
 }
 
-provider "aws" {
-  region = "eu-west-1"
-}
+
 

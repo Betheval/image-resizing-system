@@ -5,12 +5,11 @@ resource "random_string" "random_name" {
   numeric = false
   lower   = true
   upper   = false
-  count   = 2
 }
 
 #Bucket 1: Original images storage
 resource "aws_s3_bucket" "bucket1" {
-  bucket = "bucket-${random_string.random_name[0].result}"
+  bucket = "bucket-${random_string.random_name.result}"
 }
 resource "aws_lambda_permission" "allow_bucket" {
   statement_id  = "AllowExecutionFromS3Bucket"
@@ -31,6 +30,6 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
 
 #Bucket 2: Resized images storage
 resource "aws_s3_bucket" "bucket2" {
-  bucket = "bucket-${random_string.random_name[1].result}"
+  bucket = "mvgpbucket2-specificname24"
 }
 
